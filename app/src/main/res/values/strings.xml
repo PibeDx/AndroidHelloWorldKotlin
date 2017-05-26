@@ -1,3 +1,5 @@
 <resources>
+    <!--https://developer.android.com/guide/topics/resources/string-resource.html?hl=es-419-->
     <string name="app_name">HelloWorld-Kotlin</string>
+    <string name="main_hi">Hola &lt;b>%1$s&lt;/b> que &lt;b>tal!&lt;/b></string>
 </resources>
