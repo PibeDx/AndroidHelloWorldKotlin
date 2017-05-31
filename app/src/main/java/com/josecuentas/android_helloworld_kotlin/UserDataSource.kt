@@ -7,4 +7,5 @@ package com.josecuentas.android_helloworld_kotlin
 interface UserDataSource {
 
     fun add(user: User)
+
 }

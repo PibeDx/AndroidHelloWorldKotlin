@@ -5,18 +5,21 @@ package com.josecuentas.android_helloworld_kotlin
  */
 
 class UserRepository {
-    private var mUserDataSource: UserDataSource? = null
 
-    fun setUserDataSource(userDataSource: UserDataSource) {
+    var mUserDataSource: UserDataSource? = null
+
+    fun setUserDataSource(userDataSource: (UserDataSource)) {
         mUserDataSource = userDataSource
     }
+
+    fun setUserDataSource(listener: (user: User) -> Unit) {
+        mUserDataSource = object : UserDataSource {
+            override fun add(user: User) { listener(user) }
+        }
+    }
+
     fun add(user: User) {
-        mUserDataSource!!.add(user)
+        mUserDataSource?.add(user) ?: println("mUserDataSource is null")
     }
 
 }
-fun UserRepository.setUserDataSource(userDataSource: (User) -> Unit) {}
-
-
-
-
